@@ -1,0 +1,109 @@
+{
+  "_from": "parse-server@2.1.6",
+  "_id": "parse-server@2.1.6",
+  "_inBundle": false,
+  "_integrity": "sha512-fkimVG9MnfTlx1iKgTJdzKPbzPIZQ+nzkbEbEVuihMa+c1gGeoAMdo6XF5quqYKVF7za//yUhIlDKRZ55ZCN4Q==",
+  "_location": "/parse-server",
+  "_phantomChildren": {
+    "core-util-is": "1.0.2",
+    "inherits": "2.0.4",
+    "require_optional": "1.0.1"
+  },
+  "_requested": {
+    "type": "version",
+    "registry": true,
+    "raw": "parse-server@2.1.6",
+    "name": "parse-server",
+    "escapedName": "parse-server",
+    "rawSpec": "2.1.6",
+    "saveSpec": null,
+    "fetchSpec": "2.1.6"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/parse-server/-/parse-server-2.1.6.tgz",
+  "_shasum": "2e42056c4d6cb7f7818301e200ee8bbe22e9ec8d",
+  "_spec": "parse-server@2.1.6",
+  "_where": "C:\\Users\\kevin\\nodejs\\cms",
+  "bin": {
+    "parse-server": "bin/parse-server"
+  },
+  "bugs": {
+    "url": "https://github.com/ParsePlatform/parse-server/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "apn": "^1.7.5",
+    "aws-sdk": "~2.2.33",
+    "babel-polyfill": "^6.5.0",
+    "babel-runtime": "^6.5.0",
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.14.2",
+    "colors": "^1.1.2",
+    "commander": "^2.9.0",
+    "deepcopy": "^0.6.1",
+    "express": "^4.13.4",
+    "gcloud": "^0.28.0",
+    "mailgun-js": "^0.7.7",
+    "mime": "^1.3.4",
+    "mongodb": "^2.2.36",
+    "multer": "^1.1.0",
+    "node-gcm": "^0.14.0",
+    "parse": "^1.7.0",
+    "request": "^2.65.0",
+    "winston": "^2.1.1"
+  },
+  "deprecated": false,
+  "description": "An express module providing a Parse-compatible API server",
+  "devDependencies": {
+    "babel-cli": "^6.5.1",
+    "babel-core": "^6.5.1",
+    "babel-istanbul": "^0.6.0",
+    "babel-plugin-transform-flow-strip-types": "^6.5.0",
+    "babel-preset-es2015": "^6.5.0",
+    "babel-preset-stage-0": "^6.5.0",
+    "babel-register": "^6.5.1",
+    "codecov": "^1.0.1",
+    "cross-env": "^1.0.7",
+    "deep-diff": "^0.3.3",
+    "flow-bin": "^0.22.0",
+    "gaze": "^0.5.2",
+    "jasmine": "^2.3.2",
+    "mongodb-runner": "^3.1.15",
+    "nodemon": "^1.8.1"
+  },
+  "engines": {
+    "node": ">=4.3"
+  },
+  "files": [
+    "bin/",
+    "lib/",
+    "public_html/",
+    "views/",
+    "LICENSE",
+    "PATENTS",
+    "README.md"
+  ],
+  "homepage": "https://github.com/ParsePlatform/parse-server#readme",
+  "license": "BSD-3-Clause",
+  "main": "lib/index.js",
+  "name": "parse-server",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ParsePlatform/parse-server.git"
+  },
+  "scripts": {
+    "build": "babel src/ -d lib/",
+    "coverage": "cross-env COVERAGE_OPTION='./node_modules/babel-istanbul/lib/cli.js cover -x **/spec/**' npm test",
+    "dev": "npm run build && node bin/dev",
+    "posttest": "mongodb-runner stop",
+    "prepublish": "npm run build",
+    "pretest": "cross-env MONGODB_VERSION=${MONGODB_VERSION:=3.0.8} ./node_modules/.bin/mongodb-runner start",
+    "start": "node ./bin/parse-server",
+    "test": "cross-env NODE_ENV=test TESTING=1 ./node_modules/.bin/babel-node $COVERAGE_OPTION ./node_modules/jasmine/bin/jasmine.js",
+    "test:win": "npm run pretest && cross-env NODE_ENV=test TESTING=1 ./node_modules/.bin/babel-node ./node_modules/babel-istanbul/lib/cli.js cover -x **/spec/** ./node_modules/jasmine/bin/jasmine.js && npm run posttest"
+  },
+  "version": "2.1.6"
+}
